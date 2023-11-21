@@ -1,23 +1,29 @@
-import Image from "next/image";
-import Link from "next/link";
-import ProductCard from "./components/ProductCard";
+import HeroBlock from "./components/HeroBlock";
 
-export default function Home() {
+import createApolloClient from "@/app/lib/apollo-client";
+import { StartPageQuery } from "@/app/graphql/queries";
+
+export default async function Home() {
+  const client = createApolloClient();
+
+  var data = await client.query({
+    query: StartPageQuery,
+    context: {
+      fetchOptions: {
+        next: { revalidate: 5 }, // every 5 seconds
+      },
+    },
+  });
+
   return (
     <main>
-      <div className="hero min-h-screen bg-base-200">
-        <div className="hero-content text-center">
-          <div className="max-w-md">
-            <h1 className="text-5xl font-bold">Hello there</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
-            </p>
-            <button className="btn btn-primary">Get Started</button>
-          </div>
-        </div>
-      </div>
+      <HeroBlock
+        props={data.data.StartPage.items[0].Hero[0].ContentLink.Expanded}
+      />
+      <article className="prose p-10">
+        <h1>{data.data.StartPage.items[0].Title}</h1>
+        <p>{data.data.StartPage.items[0].Description}</p>
+      </article>
     </main>
   );
 }
