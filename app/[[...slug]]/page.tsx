@@ -30,7 +30,7 @@ export default async function Home({ params: { slug } }: Props) {
     },
     context: {
       fetchOptions: {
-        next: { revalidate: process.env.REVALIDATE_CACHE_IN_SECONDS },
+        next: { revalidate: Number(process.env.REVALIDATE_CACHE_IN_SECONDS) },
       },
     },
   });

@@ -17,7 +17,7 @@ const ContentPage = async ({ segment }: Props) => {
     },
     context: {
       fetchOptions: {
-        next: { revalidate: process.env.REVALIDATE_CACHE_IN_SECONDS },
+        next: { revalidate: Number(process.env.REVALIDATE_CACHE_IN_SECONDS) },
       },
     },
   });
