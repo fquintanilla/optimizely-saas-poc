@@ -22,8 +22,11 @@ const StartPage = async () => {
         props={data.data.StartPage.items[0].Hero[0].ContentLink.Expanded}
       />
       <article className="prose p-10">
-        <h1>{data.data.StartPage.items[0].Title}</h1>
-        <p
+        <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+          {data.data.StartPage.items[0].Title}
+        </h1>
+        <div
+          className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
           dangerouslySetInnerHTML={setRaw(
             data.data.StartPage.items[0].Description
           )}
