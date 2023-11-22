@@ -5,7 +5,6 @@ const CarouselBlock = (props: any) => {
   var item = props.props;
   var countId = 0;
 
-  console.log(item.Images[0].Url);
   return (
     <>
       <div className="carousel rounded-box">
