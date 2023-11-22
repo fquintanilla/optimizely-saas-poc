@@ -33,3 +33,17 @@ export const StartPageQuery = gql`
     }
   }
 `;
+
+export const ContentPageQuery = gql`
+  query ContentPageQuery($segment: String) {
+    ContentPage(where: { RouteSegment: { eq: $segment } }) {
+      items {
+        RouteSegment
+        RelativePath
+        ContentType
+        Title
+        Description
+      }
+    }
+  }
+`;
