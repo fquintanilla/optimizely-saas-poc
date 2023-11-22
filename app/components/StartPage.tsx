@@ -9,11 +9,11 @@ const StartPage = async () => {
 
   var data = await client.query({
     query: StartPageQuery,
-    /*context: {
+    context: {
       fetchOptions: {
-        next: { revalidate: 5 }, // every 5 seconds
+        next: { revalidate: process.env.REVALIDATE_CACHE_IN_SECONDS },
       },
-    },*/
+    },
   });
 
   return (

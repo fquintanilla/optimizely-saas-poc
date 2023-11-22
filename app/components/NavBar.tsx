@@ -25,11 +25,11 @@ const NavBar = async () => {
 
   var data: Navigation = await client.query({
     query: NavigationQuery,
-    /*context: {
+    context: {
       fetchOptions: {
-        next: { revalidate: 5 }, // every 5 seconds
+        next: { revalidate: process.env.REVALIDATE_CACHE_IN_SECONDS },
       },
-    },*/
+    },
   });
 
   const navItems = data.data.MenuItem.items;

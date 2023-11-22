@@ -28,11 +28,11 @@ export default async function Home({ params: { slug } }: Props) {
     variables: {
       segment: segment,
     },
-    /*context: {
+    context: {
       fetchOptions: {
-        next: { revalidate: 5 }, // every 5 seconds
+        next: { revalidate: process.env.REVALIDATE_CACHE_IN_SECONDS },
       },
-    },*/
+    },
   });
 
   if (data.data.Content.items.length == 0) {
