@@ -22,17 +22,13 @@ const ContentPage = async ({ segment }: Props) => {
     },
   });
 
+  var page = data.data.ContentPage.items[0];
+
   return (
-    <>
-      <article className="prose p-10">
-        <h1>{data.data.ContentPage.items[0].Title}</h1>
-        <p
-          dangerouslySetInnerHTML={setRaw(
-            data.data.ContentPage.items[0].Description
-          )}
-        />
-      </article>
-    </>
+    <article className="prose p-10">
+      <h1>{page.Title}</h1>
+      <p dangerouslySetInnerHTML={setRaw(page.Description)} />
+    </article>
   );
 };
 
