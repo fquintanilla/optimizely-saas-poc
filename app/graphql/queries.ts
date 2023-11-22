@@ -49,6 +49,13 @@ export const StartPageQuery = gql`
                 Title
                 Link
                 Description
+                ContentType
+              }
+              ... on CarouselBlock {
+                Images {
+                  Url
+                }
+                ContentType
               }
             }
           }

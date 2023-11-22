@@ -1,6 +1,7 @@
 import createApolloClient from "@/app/lib/apollo-client";
 import { ContentQuery } from "@/app/graphql/queries";
 import PageFactory from "../factory";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: { slug: string[] };
@@ -26,6 +27,10 @@ export default async function Home({ params: { slug } }: Props) {
       },
     },
   });
+
+  if (data.data.Content.items.length == 0) {
+    notFound();
+  }
 
   return (
     <div>

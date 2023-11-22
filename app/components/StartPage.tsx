@@ -2,7 +2,7 @@ import React from "react";
 
 import { StartPageQuery } from "@/app/graphql/queries";
 import createApolloClient from "../lib/apollo-client";
-import HeroBlock from "./HeroBlock";
+import BlockFactory from "../blockFactory";
 
 const StartPage = async () => {
   const client = createApolloClient();
@@ -18,9 +18,8 @@ const StartPage = async () => {
 
   return (
     <>
-      <HeroBlock
-        props={data.data.StartPage.items[0].Hero[0].ContentLink.Expanded}
-      />
+      <BlockFactory contentAreas={data.data.StartPage.items[0].Hero} />
+
       <article className="prose p-10">
         <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
           {data.data.StartPage.items[0].Title}
