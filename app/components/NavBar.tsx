@@ -25,11 +25,11 @@ const NavBar = async () => {
 
   var data: Navigation = await client.query({
     query: NavigationQuery,
-    context: {
+    /*context: {
       fetchOptions: {
         next: { revalidate: 5 }, // every 5 seconds
       },
-    },
+    },*/
   });
 
   const navItems = data.data.MenuItem.items;
@@ -38,9 +38,9 @@ const NavBar = async () => {
     <>
       <div className="navbar bg-base-300">
         <div className="navbar-start">
-          <Link href="/" className="btn btn-ghost text-xl">
+          <a href="/" className="btn btn-ghost text-xl">
             Verndale
-          </Link>
+          </a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">

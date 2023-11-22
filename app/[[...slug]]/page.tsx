@@ -12,6 +12,7 @@ export default async function Home({ params: { slug } }: Props) {
 
   if (slug) {
     segment = slug[slug.length - 1];
+    segment = segment.replace("%2C%2C29", "");
   }
 
   const client = createApolloClient();
@@ -21,11 +22,11 @@ export default async function Home({ params: { slug } }: Props) {
     variables: {
       segment: segment,
     },
-    context: {
+    /*context: {
       fetchOptions: {
         next: { revalidate: 5 }, // every 5 seconds
       },
-    },
+    },*/
   });
 
   if (data.data.Content.items.length == 0) {

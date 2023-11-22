@@ -8,11 +8,11 @@ export async function GET(request: NextRequest) {
 
   var data = await client.query({
     query: NavigationQuery,
-    context: {
+    /*context: {
       fetchOptions: {
         next: { revalidate: 5 },
       },
-    },
+    },*/
   });
 
   return NextResponse.json({
