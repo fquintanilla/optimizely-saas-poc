@@ -8,12 +8,18 @@ interface Props {
 }
 
 export default async function Home({ params: { slug } }: Props) {
-  var segment: string = "home";
+  var segment: string = "";
 
   if (slug) {
     segment = slug[slug.length - 1];
-    segment = segment.replace("%2C%2C29", "");
+    segment = removeAfterComma(segment);
   }
+
+  if (!segment) {
+    segment = "home";
+  }
+
+  console.log(segment);
 
   const client = createApolloClient();
 
@@ -41,4 +47,14 @@ export default async function Home({ params: { slug } }: Props) {
       />
     </div>
   );
+}
+
+function removeAfterComma(inputString: string) {
+  // Use a regular expression to match everything after the double comma
+  const regex = /%2C.*/;
+
+  // Replace the matched part with an empty string
+  const result = inputString.replace(regex, "");
+
+  return result;
 }
