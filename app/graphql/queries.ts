@@ -11,6 +11,32 @@ export const NavigationQuery = gql`
   }
 `;
 
+export const ContentQuery = gql`
+  query ContentQuery($segment: String) {
+    Content(where: { RouteSegment: { eq: $segment } }) {
+      items {
+        RouteSegment
+        RelativePath
+        ContentType
+      }
+    }
+  }
+`;
+
+export const ContentPageQuery = gql`
+  query ContentPageQuery($segment: String) {
+    ContentPage(where: { RouteSegment: { eq: $segment } }) {
+      items {
+        RouteSegment
+        RelativePath
+        ContentType
+        Title
+        Description
+      }
+    }
+  }
+`;
+
 export const StartPageQuery = gql`
   query StartPage {
     StartPage {
@@ -27,20 +53,6 @@ export const StartPageQuery = gql`
             }
           }
         }
-        Title
-        Description
-      }
-    }
-  }
-`;
-
-export const ContentPageQuery = gql`
-  query ContentPageQuery($segment: String) {
-    ContentPage(where: { RouteSegment: { eq: $segment } }) {
-      items {
-        RouteSegment
-        RelativePath
-        ContentType
         Title
         Description
       }

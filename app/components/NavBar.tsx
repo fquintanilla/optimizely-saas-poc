@@ -38,7 +38,9 @@ const NavBar = async () => {
     <>
       <div className="navbar bg-base-300">
         <div className="navbar-start">
-          <a className="btn btn-ghost text-xl">Verndale</a>
+          <Link href="/" className="btn btn-ghost text-xl">
+            Verndale
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
