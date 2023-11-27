@@ -13,9 +13,9 @@ const PageFactory = ({ contentType, segment }: Props) => {
       {contentType.map((page: any) => {
         switch (page) {
           case "StartPage":
-            return <StartPage key="1" />;
+            return <StartPage key={segment} />;
           case "ContentPage":
-            return <ContentPage key="2" segment={segment} />;
+            return <ContentPage key={segment} segment={segment} />;
           default:
             return null;
         }
