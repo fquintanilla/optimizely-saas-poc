@@ -31,6 +31,7 @@ const StartPage = async () => {
         </h1>
         <div
           className="mt-6 text-base text-zinc-600 dark:text-zinc-400"
+          data-epi-edit="Description"
           dangerouslySetInnerHTML={setRaw(page.Description)}
         />
       </article>
