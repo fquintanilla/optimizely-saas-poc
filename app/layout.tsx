@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import NavBar from "./components/NavBar";
 import Script from "next/script";
+import { isEditOrPreviewMode } from "./lib/urlHelper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -47,7 +48,10 @@ export default function RootLayout({
             </a>
           </nav>
         </footer>
-        <Script src="https://www.lakewoodchurch.com/Util/javascript/communicationinjector.js" />
+
+        {isEditOrPreviewMode() && (
+          <Script src="https://www.lakewoodchurch.com/Util/javascript/communicationinjector.js" />
+        )}
       </body>
     </html>
   );
