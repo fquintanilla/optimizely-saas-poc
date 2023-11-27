@@ -3,6 +3,7 @@ import { ContentQuery } from "@/app/graphql/queries";
 import PageFactory from "../factory";
 import { notFound } from "next/navigation";
 import Script from "next/script";
+import { NextRequest, NextResponse } from "next/server";
 
 interface Props {
   params: { slug: string[] };

@@ -37,6 +37,7 @@ const ContentPage = async ({ segment }: Props) => {
         data-epi-edit="Description"
         dangerouslySetInnerHTML={setRaw(page.Description)}
       />
+      <img src={page.Image.Url} data-epi-edit="Image" />
     </article>
   );
 };

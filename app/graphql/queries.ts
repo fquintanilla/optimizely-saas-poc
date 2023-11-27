@@ -32,6 +32,9 @@ export const ContentPageQuery = gql`
         ContentType
         Title
         Description
+        Image {
+          Url
+        }
       }
     }
   }
