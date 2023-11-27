@@ -1,9 +1,7 @@
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import NavBar from "./components/NavBar";
-import Script from "next/script";
-import { isEditOrPreviewMode } from "./lib/urlHelper";
+import NavBar from "../components/NavBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +20,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <NavBar />
         <main>{children}</main>
-
         <footer className="footer p-10 bg-neutral text-neutral-content">
           <nav>
             <header className="footer-title">Services</header>
@@ -48,10 +45,6 @@ export default function RootLayout({
             </a>
           </nav>
         </footer>
-
-        {isEditOrPreviewMode() && (
-          <Script src="https://www.lakewoodchurch.com/Util/javascript/communicationinjector.js" />
-        )}
       </body>
     </html>
   );

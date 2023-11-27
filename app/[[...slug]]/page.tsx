@@ -2,12 +2,17 @@ import createApolloClient from "@/app/lib/apollo-client";
 import { ContentQuery } from "@/app/graphql/queries";
 import PageFactory from "../factory";
 import { notFound } from "next/navigation";
+import Script from "next/script";
 
 interface Props {
   params: { slug: string[] };
+  searchParams: { epieditmode: string };
 }
 
-export default async function Home({ params: { slug } }: Props) {
+export default async function Home({
+  params: { slug },
+  searchParams: { epieditmode },
+}: Props) {
   var segment: string = "";
 
   if (slug) {
@@ -18,8 +23,6 @@ export default async function Home({ params: { slug } }: Props) {
   if (!segment) {
     segment = "home";
   }
-
-  console.log(segment);
 
   const client = createApolloClient();
 
@@ -45,6 +48,9 @@ export default async function Home({ params: { slug } }: Props) {
         contentType={data.data.Content.items[0].ContentType}
         segment={segment}
       />
+      {epieditmode?.toLowerCase() === "true" && (
+        <Script src="https://www.lakewoodchurch.com/Util/javascript/communicationinjector.js" />
+      )}
     </div>
   );
 }
