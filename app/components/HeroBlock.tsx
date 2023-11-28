@@ -4,7 +4,15 @@ import React from "react";
 const HeroBlock = (props: any) => {
   var item = props.props;
 
-  return <h1>Hero</h1>;
+  return (
+    <div className="hero min-h-screen bg-base-200">
+      <div className="hero-content text-center">
+        <div className="max-w-md">
+          <h1 className="text-5xl font-bold">{item?.Title}</h1>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 function setRaw(html: string) {
