@@ -19,7 +19,9 @@ const StartPage = async ({ epieditmode }: Props) => {
 
   return (
     <>
-      <BlockFactory contentAreas={page.Hero} epieditmode={epieditmode} />
+      <div data-epi-edit="Hero">
+        <BlockFactory contentAreas={page.Hero} epieditmode={epieditmode} />
+      </div>
 
       <article className="prose p-10">
         <h1
