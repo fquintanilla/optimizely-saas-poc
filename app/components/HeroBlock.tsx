@@ -1,13 +1,30 @@
 import Link from "next/link";
 import React from "react";
+import createApolloClient from "../lib/apollo-client";
+import { HeroBlockQuery } from "../graphql/queries";
 
 interface Props {
-  props: any;
+  id: number;
   epieditmode: string;
 }
 
-const HeroBlock = ({ props, epieditmode }: Props) => {
-  var item = props;
+const HeroBlock = async ({ id, epieditmode }: Props) => {
+  const client = createApolloClient();
+
+  var data = await client.query({
+    query: HeroBlockQuery,
+    variables: {
+      id: id,
+    },
+    context: {
+      fetchOptions: {
+        next: { revalidate: Number(process.env.REVALIDATE_CACHE_IN_SECONDS) },
+      },
+    },
+  });
+
+  var item = data.data.Hero.items[0];
+
   var className = "hero bg-base-200";
 
   // Fix infinite scroll in the on-edit view in the CMS.

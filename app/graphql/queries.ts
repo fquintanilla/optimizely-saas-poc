@@ -48,23 +48,60 @@ export const StartPageQuery = gql`
           ContentLink {
             Id
             Expanded {
-              ... on Hero {
-                Title
-                Link
-                Description
-                ContentType
-              }
-              ... on CarouselBlock {
-                Images {
-                  Url
-                }
-                ContentType
-              }
+              ContentType
             }
           }
         }
         Title
         Description
+      }
+    }
+  }
+`;
+
+export const HeroBlockQuery = gql`
+  query HeroBlockQuery($id: Int) {
+    Hero(where: { ContentLink: { Id: { eq: $id } } }) {
+      items {
+        Title
+        Description
+        Link
+      }
+    }
+  }
+`;
+
+export const CarouselBlockQuery = gql`
+  query CarouselBlockQuery($id: Int) {
+    CarouselBlock(where: { ContentLink: { Id: { eq: $id } } }) {
+      items {
+        Images {
+          Url
+        }
+      }
+    }
+  }
+`;
+
+export const HeadingBlockQuery = gql`
+  query HeadingBlockQuery($id: Int) {
+    HeadingBlock(where: { ContentLink: { Id: { eq: $id } } }) {
+      items {
+        Title
+      }
+    }
+  }
+`;
+
+export const ContactBlockQuery = gql`
+  query ContactBlockQuery($id: Int) {
+    ContactBlock(where: { ContentLink: { Id: { eq: $id } } }) {
+      items {
+        ContactName
+        Position
+        Image {
+          Url
+        }
       }
     }
   }
