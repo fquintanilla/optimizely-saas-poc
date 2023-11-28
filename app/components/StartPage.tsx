@@ -9,11 +9,6 @@ const StartPage = async () => {
 
   var data = await client.query({
     query: StartPageQuery,
-    context: {
-      fetchOptions: {
-        next: { revalidate: Number(process.env.REVALIDATE_CACHE_IN_SECONDS) },
-      },
-    },
   });
 
   var page = data.data.StartPage.items[0];

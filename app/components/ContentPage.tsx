@@ -15,11 +15,6 @@ const ContentPage = async ({ segment }: Props) => {
     variables: {
       segment: segment,
     },
-    context: {
-      fetchOptions: {
-        next: { revalidate: Number(process.env.REVALIDATE_CACHE_IN_SECONDS) },
-      },
-    },
   });
 
   var page = data.data.ContentPage.items[0];

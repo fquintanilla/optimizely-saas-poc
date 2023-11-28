@@ -31,11 +31,6 @@ export default async function Home({
     variables: {
       segment: segment,
     },
-    context: {
-      fetchOptions: {
-        next: { revalidate: Number(process.env.REVALIDATE_CACHE_IN_SECONDS) },
-      },
-    },
   });
 
   if (data.data.Content.items.length == 0) {
