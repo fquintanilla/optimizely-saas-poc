@@ -12,23 +12,7 @@ const BlockFactory = ({ contentAreas }: Props) => {
       {contentAreas.map((item: any) => {
         var contentTypes = item.ContentLink.Expanded.ContentType;
 
-        if (contentTypes.includes("Hero")) {
-          return (
-            <HeroBlock
-              key={item.ContentLink.Id}
-              props={item.ContentLink.Expanded}
-            />
-          );
-        } else if (contentTypes.includes("CarouselBlock")) {
-          return (
-            <CarouselBlock
-              key={item.ContentLink.Id}
-              props={item.ContentLink.Expanded}
-            />
-          );
-        } else {
-          return null;
-        }
+        <h1>Content Area goes here</h1>;
       })}
     </>
   );
