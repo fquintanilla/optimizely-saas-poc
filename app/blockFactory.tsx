@@ -19,6 +19,13 @@ const BlockFactory = ({ contentAreas }: Props) => {
               props={item.ContentLink.Expanded}
             />
           );
+        } else if (contentTypes.includes("CarouselBlock")) {
+          return (
+            <CarouselBlock
+              key={item.ContentLink.Id}
+              props={item.ContentLink.Expanded}
+            />
+          );
         } else {
           return null;
         }

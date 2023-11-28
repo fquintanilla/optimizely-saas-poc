@@ -7,22 +7,7 @@ const CarouselBlock = (props: any) => {
 
   return (
     <>
-      <div className="carousel rounded-box">
-        {item.Images.map((image: any) => {
-          countId++;
-          var imageUrl =
-            "https://app-ocxcfrqu46ks0prod.cms.optimizely.com" + image.Url;
-          return (
-            <div
-              id={"item" + countId}
-              key={image.Url}
-              className="carousel-item"
-            >
-              <img src={imageUrl} alt="" width={300} height={400} />
-            </div>
-          );
-        })}
-      </div>
+      <h1>Carousel</h1>
     </>
   );
 };
