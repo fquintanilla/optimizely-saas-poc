@@ -5,9 +5,11 @@ const HeroBlock = (props: any) => {
   var item = props.props;
 
   return (
-    <div className="hero-content text-center">
-      <div className="max-w-md">
-        <h1 className="text-5xl font-bold">{item?.Title}</h1>
+    <div className="hero ">
+      <div className="hero-content text-center">
+        <div className="max-w-md">
+          <h1 className="text-5xl font-bold">{item?.Title}</h1>
+        </div>
       </div>
     </div>
   );
