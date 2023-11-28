@@ -4,9 +4,10 @@ import HeroBlock from "./components/HeroBlock";
 
 interface Props {
   contentAreas: any;
+  epieditmode: string;
 }
 
-const BlockFactory = ({ contentAreas }: Props) => {
+const BlockFactory = ({ contentAreas, epieditmode }: Props) => {
   return (
     <>
       {contentAreas.map((item: any) => {
@@ -17,6 +18,7 @@ const BlockFactory = ({ contentAreas }: Props) => {
             <HeroBlock
               key={item.ContentLink.Id}
               props={item.ContentLink.Expanded}
+              epieditmode={epieditmode}
             />
           );
         } else if (contentTypes.includes("CarouselBlock")) {

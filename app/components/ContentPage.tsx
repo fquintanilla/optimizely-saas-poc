@@ -5,9 +5,10 @@ import createApolloClient from "../lib/apollo-client";
 
 interface Props {
   segment: string;
+  epieditmode: string;
 }
 
-const ContentPage = async ({ segment }: Props) => {
+const ContentPage = async ({ segment, epieditmode }: Props) => {
   const client = createApolloClient();
 
   var data = await client.query({

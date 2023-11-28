@@ -4,7 +4,11 @@ import { StartPageQuery } from "@/app/graphql/queries";
 import createApolloClient from "../lib/apollo-client";
 import BlockFactory from "../blockFactory";
 
-const StartPage = async () => {
+interface Props {
+  epieditmode: string;
+}
+
+const StartPage = async ({ epieditmode }: Props) => {
   const client = createApolloClient();
 
   var data = await client.query({
@@ -15,7 +19,7 @@ const StartPage = async () => {
 
   return (
     <>
-      <BlockFactory contentAreas={page.Hero} />
+      <BlockFactory contentAreas={page.Hero} epieditmode={epieditmode} />
 
       <article className="prose p-10">
         <h1

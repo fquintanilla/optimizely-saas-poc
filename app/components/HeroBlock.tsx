@@ -1,11 +1,22 @@
 import Link from "next/link";
 import React from "react";
 
-const HeroBlock = (props: any) => {
-  var item = props.props;
+interface Props {
+  props: any;
+  epieditmode: string;
+}
+
+const HeroBlock = ({ props, epieditmode }: Props) => {
+  var item = props;
+  var className = "hero bg-base-200";
+
+  // Fix infinite scroll in the on-edit view in the CMS.
+  if (epieditmode?.toLowerCase() != "true") {
+    className += " min-h-screen";
+  }
 
   return (
-    <div className="hero bg-base-200">
+    <div className={className}>
       <div className="hero-content text-center">
         <div className="max-w-md">
           <h1 className="text-5xl font-bold">{item?.Title}</h1>

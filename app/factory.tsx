@@ -5,17 +5,24 @@ import ContentPage from "./components/ContentPage";
 interface Props {
   contentType: string[];
   segment: string;
+  epieditmode: string;
 }
 
-const PageFactory = ({ contentType, segment }: Props) => {
+const PageFactory = ({ contentType, segment, epieditmode }: Props) => {
   return (
     <>
       {contentType.map((page: any) => {
         switch (page) {
           case "StartPage":
-            return <StartPage key={segment} />;
+            return <StartPage key={segment} epieditmode={epieditmode} />;
           case "ContentPage":
-            return <ContentPage key={segment} segment={segment} />;
+            return (
+              <ContentPage
+                key={segment}
+                segment={segment}
+                epieditmode={epieditmode}
+              />
+            );
           default:
             return null;
         }

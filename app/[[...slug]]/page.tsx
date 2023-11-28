@@ -42,6 +42,7 @@ export default async function Home({
       <PageFactory
         contentType={data.data.Content.items[0].ContentType}
         segment={segment}
+        epieditmode={epieditmode}
       />
       {epieditmode?.toLowerCase() === "true" && (
         <Script src="https://www.lakewoodchurch.com/Util/javascript/communicationinjector.js" />
